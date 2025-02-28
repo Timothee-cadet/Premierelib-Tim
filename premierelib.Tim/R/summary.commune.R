@@ -1,3 +1,5 @@
+#'@name summary_commune
+#'
 #'@title Résumé des caractéristiques des élus municipaux d'une commune
 #'
 #'@description
@@ -9,7 +11,7 @@
 #'Il doit inclure les colonnes `Libellé.de.la.commune`, `Nom.de.l.élu`, `Prénom.de.l.élu` et `Âge`.
 #'@return Un affichage des informations clés sur les élus municipaux de la commune
 #'@export
-summary_commune <- function(x) {
+summary.commune <- function(x) {
 
   if (!inherits(x, "commune")) {
     stop("L'objet doit être de type 'commune'.")

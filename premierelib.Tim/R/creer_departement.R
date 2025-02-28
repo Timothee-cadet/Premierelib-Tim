@@ -62,4 +62,3 @@ creer_departement <- function(df) {
   return(departement)
 }
 
-creer_departement(df_Loire_Atlantique)

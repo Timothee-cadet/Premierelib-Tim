@@ -1,6 +1,7 @@
+#'@name plot.commune
+#'
 #'@title Visualisation de la répartition des élus par catégorie socio-professionnelle pour une commune
 #'
-#'@method plot commune
 #'@description
 #'Cette fonction génère un graphique en barres représentant la répartition des élus municipaux en fonction de leur catégorie socio-professionnelle pour une commune donnée.
 #'
@@ -15,7 +16,7 @@
 #'
 #'@return Un graphique en barres affichant le nombre d'élus par code professionnel pour la commune sélectionnée.
 #'@export
-plot_commune <- function(df) {
+plot.commune <- function(df) {
 
   # Vérification de la structure du DataFrame
   nom_commune <- unique(df$Libellé.de.la.commune)
@@ -43,3 +44,4 @@ plot_commune <- function(df) {
     cex.names = 0.7  # Réduction de la taille du texte sur l'axe Y pour lisibilité
   )
 }
+

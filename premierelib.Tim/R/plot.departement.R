@@ -1,6 +1,7 @@
+#'@name plot.departement
+#'
 #'@title Visualisation de la répartition des élus par catégorie socio-professionnelle pour un département
 #'
-#'@method plot departement
 #'@description
 #' Cette fonction génère un graphique en barres représentant la répartition des élus municipaux en fonction de leur catégorie socio-professionnelle pour un département donné.
 #'
@@ -14,7 +15,7 @@
 #'
 #'@return Un graphique en barres affichant le nombre d'élus par code professionnel pour le département sélectionné.
 #'@export
-plot_departement <- function(df) {
+plot.departement <- function(df) {
 
   # Vérification de la structure du DataFrame
   departement_name <- unique(df$Libellé.du.département)
