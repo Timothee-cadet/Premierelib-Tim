@@ -1,14 +1,17 @@
 Package: premierelib.Tim
-Title: What the Package Does (One Line, Title Case)
+Title: Fonctions de traitement et d'analyse des données électorales municipales
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: person("Timothée", "CADET", email = "timothee.cadet8@gmail.com", role = c("aut", "cre"))
+Description: Ce package fournit des outils pour le traitement et l'analyse des données électorales municipales, incluant des fonctions pour compter les membres des conseils municipaux et identifier des rôles spécifiques tels que les adjoints. Il inclut également diverses fonctions utilitaires pour la validation et la manipulation des données, conçues pour soutenir l'analyse des données politiques et administratives.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Imports: dplyr
 Depends: 
     R (>= 3.5)
 LazyData: true
+
+
+
+
