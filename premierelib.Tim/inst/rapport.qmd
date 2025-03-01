@@ -8,8 +8,9 @@ params:
   code_departement: "44"  
 ---
 
-```{r}
-# Chargement des bibliothèques nécessaires
+```{r setup, echo=FALSE} 
+#echo=FALSE va permettre de cacher le code lors de la génération du rapport
+
 library(remotes)
 library(premierelib.Tim)
 
