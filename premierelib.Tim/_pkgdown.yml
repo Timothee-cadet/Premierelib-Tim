@@ -1,4 +1,7 @@
 url: ~
-template:
-  bootstrap: 5
 
+template:
+  main: default
+
+assets:
+  - path: "assets/css/personnalisation/personnalisation.R"  # Chemin relatif vers le fichier CSS
