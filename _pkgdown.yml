@@ -4,7 +4,6 @@ template:
   bootstrap: 5
   main: default
 
-# Pour personnaliser avec un thème
-theme:
-  primary: "#007bff"  # Couleur primaire de la barre de navigation
-  secondary: "#0056b3"  # Couleur secondaire
+# Ajout de la personnalisation du CSS
+assets:
+  - path: "docs/assets/css/personnalisation/personnalisation.css"
