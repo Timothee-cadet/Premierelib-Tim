@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Timothée CADET">
 
-<title>Rapport</title>
+<title>generer_un_rapport</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,8 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-<<<<<<< HEAD
-=======
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { line-height: 1.25; }
@@ -57,20 +54,19 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
->>>>>>> main
 </style>
 
 
-<script src="rapport_files/libs/clipboard/clipboard.min.js"></script>
-<script src="rapport_files/libs/quarto-html/quarto.js"></script>
-<script src="rapport_files/libs/quarto-html/popper.min.js"></script>
-<script src="rapport_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="rapport_files/libs/quarto-html/anchor.min.js"></script>
-<link href="rapport_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="rapport_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="rapport_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="rapport_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="rapport_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="generer_un_rapport_files/libs/clipboard/clipboard.min.js"></script>
+<script src="generer_un_rapport_files/libs/quarto-html/quarto.js"></script>
+<script src="generer_un_rapport_files/libs/quarto-html/popper.min.js"></script>
+<script src="generer_un_rapport_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="generer_un_rapport_files/libs/quarto-html/anchor.min.js"></script>
+<link href="generer_un_rapport_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="generer_un_rapport_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="generer_un_rapport_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="generer_un_rapport_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="generer_un_rapport_files/libs/bootstrap/bootstrap-1bc8a17f135ab3d594c857e9f48e611b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -81,106 +77,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Rapport</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Timothée CADET </p>
-          </div>
-  </div>
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<hr>
+<p>title: “Générer un rapport d’analyses” author: “Timothée CADET” output: html_document: default VignetteBuilder: quarto —</p>
 <div class="cell">
-<<<<<<< HEAD
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: le package 'remotes' a été compilé avec la version R 4.4.2</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(premierelib.Tim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-=======
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des bibliothèques nécessaires</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: le package 'remotes' a été compilé avec la version R 4.4.2</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(premierelib.Tim)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Chargement des données</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"data_exercice"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Paramètres</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>code_commune <span class="ot">&lt;-</span> params<span class="sc">$</span>code_commune</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>code_departement <span class="ot">&lt;-</span> params<span class="sc">$</span>code_departement</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Info commune</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>df_commune <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_exercice, </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>                     Code.de.la.commune <span class="sc">==</span> code_commune <span class="sc">&amp;</span> </span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                     Code.du.département <span class="sc">==</span> code_departement)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(df_commune) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">class</span>(df_commune) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"commune"</span>, <span class="fu">class</span>(df_commune))</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary_commune</span>(df_commune)  <span class="co"># Affichage du résumé de la commune</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Graphique de la commune</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">plot_commune</span>(df_commune))  <span class="co"># Affichage du graphique de la commune</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Aucune donnée trouvée pour cette commune.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> main
+<p>Cette vignette permet d’explorer trois fonctions principales présentes dans le package <code>premierelib.Tim</code> : 1. <code>summary_commune()</code> 2. <code>summary_departement()</code> 3. <code>generer_rapport()</code></p>
+<section id="la-fonction-summary_commune" class="level1">
+<h1>1. La fonction <code>summary_commune()</code></h1>
+<p>La fonction <code>summary_commune()</code> génère un résumé détaillé des élus dans une commune donnée comme l’âge, leur nom…</p>
+<section id="utilisation-de-summary_commune" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-summary_commune">Utilisation de <code>summary_commune()</code>:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les données pour la commune de Nantes</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_nantes <span class="ot">&lt;-</span> data_exercice[data_exercice<span class="sc">$</span>Libellé.de.la.commune <span class="sc">==</span> <span class="st">"Nantes"</span>, ]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Modifier la classe de l'objet pour le rendre compatible avec la fonction summary_commune</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df_nantes) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"commune"</span>, <span class="fu">class</span>(df_nantes))</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Appeler la fonction summary_commune pour obtenir le résumé de la commune</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary_commune</span>(df_nantes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Nom.de.l.élu Prénom.de.l.élu Date.de.naissance Âge
-1      BROSSET        Michelle        1949-06-06  75
-Nom de la commune : Gorges 
-Nombre d'élu.e.s : 26 
+1   PROCHASSON        François        1952-02-28  73
+Nom de la commune : Nantes 
+Nombre d'élu.e.s : 66 
 Distribution des âges des élu.e.s : 
       0%      25%      50%      75%     100% 
-30.67397 48.11233 51.28767 63.65548 75.78630 
+28.20822 43.13219 51.06986 58.65890 73.05479 
 L'élu.e le ou la plus âgé.e : 
-Nom : BROSSET 
-Prénom : Michelle 
-Âge : -7514 </code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<<<<<<< HEAD
-<p><img src="rapport_files/figure-html/setup-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+Nom : PROCHASSON 
+Prénom : François 
+Âge : -6517 </code></pre>
 </div>
 </div>
-=======
-<p><img src="rapport_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Information sur le département</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df_departement <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_exercice, </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                         Code.du.département <span class="sc">==</span> code_departement)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">nrow</span>(df_departement) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">class</span>(df_departement) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"département"</span>, <span class="fu">class</span>(df_departement))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary_departement</span>(df_departement)  <span class="co"># Affichage du résumé du département</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Graphique département</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">plot_departement</span>(df_departement))  <span class="co"># Affichage du graphique du département</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Aucune donnée trouvée pour ce département.</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
->>>>>>> main
+</section>
+</section>
+<section id="la-fonction-summary_departement" class="level1">
+<h1>2. La fonction <code>summary_departement()</code></h1>
+<p>La fonction <code>summary_departement()</code> génère un résumé des élus dans un département, notament des statistiques détaillées sur les élus comme leur âge, l’élu le plus âgé, le plus jeune…</p>
+<p>Utilisation de <code>summary_departement()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Charger les données pour le département de Loire-Atlantique</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_Loire_atlantique <span class="ot">&lt;-</span> data_exercice[data_exercice<span class="sc">$</span>Libellé.du.département <span class="sc">==</span> <span class="st">"Loire-Atlantique"</span>, ]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Modifier la classe de l'objet pour le rendre compatible avec la fonction summary_departement</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(df_Loire_atlantique) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"département"</span>, <span class="fu">class</span>(df_Loire_atlantique))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Résumé pour le département de Loire-Atlantique (code 44)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary_departement</span>(df_Loire_atlantique)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Nom du département : Loire-Atlantique 
 Nombre de communes : 207 
@@ -197,18 +145,58 @@ Commune avec la moyenne d’âge la plus élevée : Les Moutiers-En-Retz
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   50.00   63.50   70.00   68.58   74.50   81.00 </code></pre>
 </div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<<<<<<< HEAD
-<p><img src="rapport_files/figure-html/setup-2.png" class="img-fluid figure-img" width="672"></p>
-=======
-<p><img src="rapport_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
->>>>>>> main
-</figure>
+</div>
+</section>
+<section id="la-fonction-generer_rapport" class="level1">
+<h1>3. La fonction <code>generer_rapport()</code></h1>
+<p>La fonction <code>generer_rapport()</code> permet de générer un rapport HTML détaillé à partir des données d’une commune et d’un département donnés. Cette fonction contient les fonctions <code>summary_commune()</code> et <code>summary_departement()</code>.</p>
+<section id="utilisation-de-generer_rapport" class="level3">
+<h3 class="anchored" data-anchor-id="utilisation-de-generer_rapport">Utilisation de <code>generer_rapport()</code></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Appeler la fonction générer_rapport pour générer le rapport</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">generer_rapport</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">commune =</span> <span class="st">"44215"</span>,        </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">departement =</span> <span class="st">"44"</span>,        </span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">output =</span> <span class="st">"rapport_vertou.html"</span>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+
+processing file: rapport.qmd
+
+  |                                                                    
+  |                                                              |   0%
+  |                                                                    
+  |.....................                                         |  33%        
+  |                                                                    
+  |.........................................                     |  67% [setup]
+  |                                                                    
+  |..............................................................| 100%        
+                                                                                                  
+output file: rapport.knit.md
+
+pandoc --output ..\vignettes\rapport_vertou.html
+  to: html
+  standalone: true
+  section-divs: true
+  html-math-method: mathjax
+  wrap: none
+  default-image-extension: png
+  
+metadata
+  document-css: false
+  link-citations: true
+  date-format: long
+  lang: en
+  title: Rapport
+  editor: visual
+  author: Timothée CADET
+  
+Output created: ..\vignettes\rapport_vertou.html</code></pre>
 </div>
 </div>
-</div>
+</section>
+</section>
 
 </main>
 <!-- /main column -->

@@ -17,7 +17,7 @@
 #' @importFrom stats quantile
 
 calcul_distribution_age <- function(df) {
-  # 'Date.de.naissance' en date
+  # Convertir la colonne 'Date.de.naissance' en date et calculer l'âge
   df <- df |>
     mutate(age = as.numeric(difftime(today(), dmy(Date.de.naissance), units = "days")) / 365)
 
@@ -29,4 +29,3 @@ calcul_distribution_age <- function(df) {
 
   return(quantiles)
 }
-
