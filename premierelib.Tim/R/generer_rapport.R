@@ -24,7 +24,6 @@
 #'
 #' @export
 
-
 generer_rapport <- function(commune, departement, output) {
   quarto::quarto_render(
     input = file.path("C:", "Users", "Timothée", "Documents", "M1 ECAP",

@@ -9,34 +9,48 @@ params:
 ---
 
 ```{r}
+# Chargement des bibliothèques nécessaires
 library(remotes)
 library(premierelib.Tim)
 
+# Chargement des données
 data("data_exercice")
 
 # Paramètres
 code_commune <- params$code_commune
 code_departement <- params$code_departement
 
-# Commune
-df_commune <- data_exercice[
-  data_exercice$Code.de.la.commune == code_commune & 
-  data_exercice$Code.du.département == code_departement, ]
+# Info commune
+df_commune <- subset(data_exercice, 
+                     Code.de.la.commune == code_commune & 
+                     Code.du.département == code_departement)
 
 if (nrow(df_commune) > 0) {
   class(df_commune) <- c("commune", class(df_commune))
-  summary_commune(df_commune)
-  plot_commune(df_commune)
+  summary_commune(df_commune)  # Affichage du résumé de la commune
+  
+  # Graphique de la commune
+  print(plot_commune(df_commune))  # Affichage du graphique de la commune
+} else {
+  cat("Aucune donnée trouvée pour cette commune.\n")
 }
 
-# Département
-df_departement <- data_exercice[
-  data_exercice$Code.du.département == code_departement, ]
+# Information sur le département
+df_departement <- subset(data_exercice, 
+                         Code.du.département == code_departement)
 
 if (nrow(df_departement) > 0) {
   class(df_departement) <- c("département", class(df_departement))
-  summary_departement(df_departement)
-  plot_departement(df_departement)
+  summary_departement(df_departement)  # Affichage du résumé du département
+  
+  # Graphique département
+  print(plot_departement(df_departement))  # Affichage du graphique du département
+} else {
+  cat("Aucune donnée trouvée pour ce département.\n")
 }
 
 ```
+
+
+
+
