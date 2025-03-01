@@ -1,0 +1,16 @@
+---
+title: "Générer un rapport d'analyses"
+format: html
+editor: visual
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(firstlibTim)
+```
