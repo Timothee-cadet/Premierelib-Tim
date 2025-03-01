@@ -11,7 +11,7 @@ Imports: dplyr, lubridate, purrr, stats, ggplot2, quarto
 Depends: 
     R (>= 3.5)
 LazyData: true
-URL: https://github.com/Timothee-cadet/premierelib.Tim
+URL: https://timothee-cadet.github.io/Premierelib-Tim/
 
 
 
