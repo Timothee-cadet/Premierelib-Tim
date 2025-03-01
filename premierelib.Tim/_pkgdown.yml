@@ -3,7 +3,6 @@ destination: docs
 template:
   bootstrap: 5
 
-
 assets:
-  - path: "assets/css/personnalisation/personnalisation.R"  # Chemin relatif vers le fichier CSS
+  - path: "docs/assets/css/personnalisation/personnalisation.R"  # Chemin relatif vers le fichier CSS
 
