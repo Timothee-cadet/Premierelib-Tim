@@ -1,12 +1,21 @@
-/* Personnalisation des boutons de la barre de navigation */
-  .navbar-nav .nav-link {
-    background-color: #4CAF50;  /* Couleur de fond des onglets */
-      color: white !important;    /* Couleur du texte */
-      border-radius: 4px;         /* Arrondi des coins des onglets */
-      padding: 8px 16px;          /* Espacement interne des onglets */
+/* Style de la barre de navigation (les onglets) */
+  .navbar {
+    background-color: #007bff !important; /* Bleu vif pour la barre de navigation */
   }
 
-.navbar-nav .nav-link:hover {
-  background-color: #45a049;  /* Couleur de fond au survol (hover) */
-    color: white !important;    /* Garder le texte blanc au survol */
-}
+/* Couleur du texte des onglets */
+  .navbar a {
+    color: white !important; /* Texte des onglets en blanc */
+      font-weight: bold; /* Optionnel: mettre les onglets en gras */
+  }
+
+/* Couleur au survol des onglets */
+  .navbar a:hover {
+    background-color: #0056b3; /* Bleu plus foncé au survol */
+      color: white !important; /* Garder le texte en blanc même au survol */
+  }
+
+/* Onglet actif */
+  .navbar .active {
+    background-color: #004085; /* Un bleu encore plus foncé pour l'onglet actif */
+  }
