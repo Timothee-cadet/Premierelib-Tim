@@ -1,3 +1,5 @@
+#'@name trouver_l_elu_le_plus_age
+#'
 #'@title Trouver l'élu municipal le plus âgé
 #'
 #'@description
@@ -5,26 +7,43 @@
 #'
 #'@param df Un DataFrame contenant les informations des élus municipaux. Il doit inclure une colonne Date.de.naissance au format jj/mm/aaaa.
 #'@return Un DataFrame avec le nom, le prénom, la date de naissance et l'âge de l'élu le plus âgé.
-#'@details
-#'La fonction convertit la colonne Date.de.naissance en format Date, identifie la plus ancienne date de naissance et calcule l'âge en années.
-#'@seealso [validate_schema()]
-#'@export
-trouver_l_elu_le_plus_age <- function(df) {
-  # Vérification si la colonne Date.de.naissance existe
-  if (!"Date.de.naissance" %in% colnames(df)) {
-    stop("Le data.frame doit contenir la colonne 'Date.de.naissance'.")
-  }
+#'@importFrom dplyr select mutate slice
+#'@importFrom lubridate dmy interval as.period
+#'@import purrr
 
-  # Convertir la colonne Date.de.naissance en format Date
-  df$Date.de.naissance <- as.Date(df$Date.de.naissance, format = "%d/%m/%Y")
+trouver_l_elu_le_plus_age <- function(df){
 
-  # Trouver la plus ancienne date de naissance
-  index_plus_age <- which.min(df$Date.de.naissance)
+  # Convertir Date.de.naissance en texte, gérer les valeurs manquantes, puis convertir en date
+  df <- df |>
+    dplyr::mutate(df, Date.de.naissance = as.character(Date.de.naissance))
+  # S'assurer que c'est du texte
 
-  elu_plus_age <- df[index_plus_age, c("Nom.de.l.élu", "Prénom.de.l.élu", "Date.de.naissance")]
+  # Remplacer les valeurs manquantes ou invalides (NA, "", "Inconnu", "-") par NA
+  df <- df |>
+    dplyr::mutate(Date.de.naissance = ifelse(Date.de.naissance %in% c("", "NA", "Inconnu", "-"), NA, Date.de.naissance))
 
-  # Calculer l'âge en années
-  elu_plus_age$Âge <- as.integer(difftime(Sys.Date(), elu_plus_age$Date.de.naissance, units = "days") / 365.25)
+  # Convertir les dates au format "jour-mois-année"
+  df <- df |>
+    dplyr::mutate(Date.de.naissance = dmy(Date.de.naissance))
 
-  return(elu_plus_age)
+  # Supprimer les lignes avec des dates invalides (NA)
+  df <- df |>
+    dplyr::filter(!is.na(Date.de.naissance))
+
+  # Trouver l'élu le plus âgé (l'élément avec la date de naissance la plus ancienne)
+  df <- df |>
+    dplyr::slice(which.min(Date.de.naissance))
+
+  # Calculer l'âge de l'élu
+  df <- df |>
+    dplyr::mutate(Âge = as.integer(as.period(interval(Date.de.naissance, Sys.Date()))$year))
+
+  # Sélectionner uniquement les colonnes pertinentes
+  df <- df |>
+    dplyr::select(Nom.de.l.élu, Prénom.de.l.élu, Date.de.naissance, Âge)
+
+  # Afficher le résultat
+  print(df)
+
 }
+

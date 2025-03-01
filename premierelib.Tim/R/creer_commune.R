@@ -71,5 +71,3 @@ creer_commune <- function(df) {
 
   return(commune)
 }
-
-

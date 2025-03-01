@@ -14,10 +14,15 @@
 #' }
 #'
 #'@return Un graphique en barres affichant le nombre d'élus par code professionnel pour le département sélectionné.
+#'@importFrom dplyr filter group_by summarise arrange slice_max
+#'@importFrom ggplot2 ggplot aes geom_bar labs theme_minimal theme
 #'@export
-plot.departement <- function(df) {
 
-  # Vérification de la structure du DataFrame
+plot_departement <- function(df) {
+
+  df <- df |>
+    filter(!is.na(Libellé.du.département))
+
   departement_name <- unique(df$Libellé.du.département)
   nombre_communes <- length(unique(df$Libellé.de.la.commune))
 
@@ -25,22 +30,24 @@ plot.departement <- function(df) {
     stop("Le data.frame contient plusieurs départements. Veuillez filtrer pour un seul département.")
   }
 
-  # Comptage des occurrences des codes socio-professionnels
-  professions_code <- table(df$Code.de.la.catégorie.socio.professionnelle)
+  # Filtrer les NA dans 'Libellé.du.département'
+  professions_code <- df |>
+    filter(!is.na(Libellé.du.département)) |>  # Exclure les NA dans 'Libellé.du.département'
+    group_by(Code.de.la.catégorie.socio.professionnelle) |>
+    summarise(n = n(), .groups = "drop") |>
+    arrange(desc(n)) |>
+    slice_max(n, n = 10)  # Garder uniquement les 10 premiers codes professionnels
 
-  # Trier les codes professionnels par fréquence et garder les 10 plus fréquents
-  professions_code <- sort(professions_code, decreasing = TRUE)[1:10]
-
-  # Création du graphique avec barplot()
-  barplot(
-    professions_code,
-    horiz = TRUE,
-    las = 1,
-    col = "steelblue",
-    main = paste(departement_name, "-", nombre_communes, "communes"),
-    xlab = paste("Libellés des 10 codes professionnels les plus représentés pour le département", departement_name),
-    ylab = "Code Professionnel",
-    cex.names = 0.7  # Réduction de la taille du texte sur l'axe Y pour lisibilité
-  )
+  ggplot(professions_code,
+         aes(x = n,
+             y = reorder(Code.de.la.catégorie.socio.professionnelle, n))) +
+    geom_bar(stat = "identity", fill = "steelblue") +
+    labs(
+      title = paste(departement_name, "-", nombre_communes, "communes"),
+      x = paste("Libellés des 10 codes professionnels les plus représentés pour le département", departement_name),
+      y = "Code Professionnel"
+    ) +
+    theme_minimal() +
+    theme(axis.text.y = element_text(size = 5))
 }
 

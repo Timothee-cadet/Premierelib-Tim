@@ -11,24 +11,22 @@
 #'- Elle calcule l'âge en années à partir de la date de naissance.
 #'- Elle retourne les quantiles 0% (min), 25% (Q1), 50% (médiane), 75% (Q3) et 100% (max).
 #'- Les valeurs manquantes (`NA`) sont ignorées dans le calcul.
+#' @export
+#' @import dplyr
+#' @importFrom lubridate today dmy
+#' @importFrom stats quantile
 
 calcul_distribution_age <- function(df) {
-  # Vérification que la colonne 'Date.de.naissance' existe dans le DataFrame
-  if (!"Date.de.naissance" %in% colnames(df)) {
-    stop("La colonne 'Date.de.naissance' est requise dans le DataFrame")
-  }
+  # Convertir la colonne 'Date.de.naissance' en date et calculer l'âge
+  df <- df |>
+    mutate(age = as.numeric(difftime(today(), dmy(Date.de.naissance), units = "days")) / 365)
 
-  # Conversion de la colonne 'Date.de.naissance' en format Date
-  df$Date.de.naissance <- as.Date(df$Date.de.naissance, format = "%d/%m/%Y")
+  # Exclure les NA de la colonne 'age' pour calculer les quantiles
+  df_clean <- df |> filter(!is.na(age))  # Filtrer les lignes avec NA dans 'age'
 
-  # Vérifier les dates valides (éviter les NA)
-  df$Valid.Date <- !is.na(df$Date.de.naissance)
-
-  # Calcul de l'âge en années
-  df$Age <- as.integer(difftime(Sys.Date(), df$Date.de.naissance, units = "days") / 365.25)
-
-  # Calcul des quantiles de l'âge
-  quantiles <- quantile(df$Age, probs = c(0, 0.25, 0.5, 0.75, 1), na.rm = TRUE)
+  # Calculer les quantiles
+  quantiles <- quantile(df_clean$age, probs = c(0, 0.25, 0.50, 0.75, 1), na.rm = TRUE)
 
   return(quantiles)
 }
+

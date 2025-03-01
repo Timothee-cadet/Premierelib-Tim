@@ -2,9 +2,10 @@
 % Please edit documentation in R/compter_nombre_d_elu.R
 \name{compter_nombre_d_elu}
 \alias{compter_nombre_d_elu}
+\alias{compter_nombre_d_elus}
 \title{Compter le nombre d'élu}
 \usage{
-compter_nombre_d_elu(df)
+compter_nombre_d_elus(df)
 }
 \arguments{
 \item{df}{Un data.frame contenant au minimum les colonnes Nom.de.l.élu, Prénom.de.l.élu et Date.de.naissance}

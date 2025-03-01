@@ -15,33 +15,33 @@
 #' }
 #'
 #'@return Un graphique en barres affichant le nombre d'élus par code professionnel pour la commune sélectionnée.
+#'@importFrom ggplot2 ggplot aes geom_bar labs theme_minimal theme
+#'@import dplyr
 #'@export
-plot.commune <- function(df) {
 
-  # Vérification de la structure du DataFrame
-  nom_commune <- unique(df$Libellé.de.la.commune)
-  nom_department <- unique(df$Libellé.du.département)
+plot_commune <- function(df) {
 
-  if (length(nom_commune) > 1) {
+  commune_name <- unique(df$Libellé.de.la.commune)
+  departement_name <- unique(df$Libellé.du.département)
+
+  if (length(commune_name) > 1) {
     stop("Le data.frame contient plusieurs communes. Veuillez filtrer pour une seule commune.")
   }
 
-  # Comptage des occurrences des codes socio-professionnels
-  professions_code <- table(df$Code.de.la.catégorie.socio.professionnelle)
+  professions_code <- df |>
+    group_by(Code.de.la.catégorie.socio.professionnelle) |>
+    summarise(n = n(), .groups = "drop") |>
+    arrange(desc(n))
 
-  # Trier les codes professionnels par fréquence
-  professions_code <- sort(professions_code, decreasing = TRUE)
-
-  # Création du graphique avec barplot()
-  barplot(
-    professions_code,
-    horiz = TRUE,
-    las = 1,
-    col = "steelblue",
-    main = paste(nom_commune, "-", nom_department),
-    xlab = paste("Libellés des codes professionnels pour les élus (", length(df$Nom.de.l.élu), " élus)", sep = ""),
-    ylab = "Code Professionnel",
-    cex.names = 0.7  # Réduction de la taille du texte sur l'axe Y pour lisibilité
-  )
+  ggplot(professions_code,
+         aes(x = n,
+             y = reorder(Code.de.la.catégorie.socio.professionnelle, n))) +
+    geom_bar(stat = "identity", fill = "steelblue") +
+    labs(
+      title = paste(commune_name, "-", departement_name),
+      x = paste("Libellés des codes professionnels pour les élus (", compter_nombre_d_elus(df), " élus)", sep = ""),
+      y = "Code Professionnel"
+    ) +
+    theme_minimal() +
+    theme(axis.text.y = element_text(size = 5))
 }
-

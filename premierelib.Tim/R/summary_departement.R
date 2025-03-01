@@ -18,9 +18,10 @@
 #' - La fonction vérifie d'abord que x est bien un objet de classe "département".
 #' - Elle calcule les statistiques en utilisant les dates de naissance pour déterminer l'âge des élus.
 #' - Les résultats sont affichés directement dans la console avec print().
+#'@importFrom dplyr mutate filter slice group_by summarise pull
+#'@importFrom lubridate dmy interval years
 #'@export
-#Sans librairie
-summary.departement <- function(x) {
+summary_departement <- function(x) {
 
   if (!inherits(x, "département")) {
     stop("L'objet doit être de type 'département'.")
@@ -63,3 +64,4 @@ summary.departement <- function(x) {
   print(summary(x$Âge[x$Libellé.de.la.commune == commune_max_age]))
 
 }
+

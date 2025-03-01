@@ -20,8 +20,10 @@
 #'   \item `Libellé.du.département` : Nom du département.
 #'   \item `Collectivite` : Liste des collectivités à statut particulier si elles existent dans les données (sinon `NULL`).
 #'   \item `Communes` : Liste des objets de type `commune` créés pour chaque commune présente dans le département.
-#' }
+#'}
+#'@import dplyr
 #'@export
+
 creer_departement <- function(df) {
   # Colonnes obligatoires
   required_columns <- c(
@@ -36,6 +38,7 @@ creer_departement <- function(df) {
     stop("Le data.frame doit contenir les colonnes nécessaires pour le département.")
   }
 
+  # Gestion des collectivités à statut particulier (optionnel)
   has_collectivite <- all(c("Code.de.la.collectivité.à.statut.particulier",
                             "Libellé.de.la.collectivité.à.statut.particulier") %in% colnames(df))
 
@@ -57,8 +60,7 @@ creer_departement <- function(df) {
   )
 
   # Attribution de la classe 'departement'
-  class(departement) <- "département"
+  class(departement) <- "departement"
 
   return(departement)
 }
-

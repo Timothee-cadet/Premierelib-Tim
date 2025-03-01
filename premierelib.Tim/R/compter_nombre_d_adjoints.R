@@ -8,13 +8,13 @@
 #'@details
 #'La fonction recherche les lignes où Libellé.de.la.fonction contient le mot "adjoint".
 #Fonction pour compter le nombre d'adjoint sans l'aide de librairie
-compter_nombre_d_adjoints <- function(df) {
-  # Vérifier que la colonne 'Libellé.de.la.fonction' existe dans le DataFrame
-  if (!"Libellé.de.la.fonction" %in% colnames(df)) {
-    stop("La colonne 'Libellé.de.la.fonction' est requise dans le DataFrame")
-  }
+#'@import dplyr
 
-  # Compter le nombre d'adjoints
-  sum(grepl("adjoint", df$Libellé.de.la.fonction, ignore.case = TRUE))
+compter_nombre_d_adjoints <- function(df){
+
+  df |>
+    filter(grepl("adjoint", Libellé.de.la.fonction, ignore.case = TRUE)) |>
+    nrow()
 }
+
 

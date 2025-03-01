@@ -15,9 +15,3 @@ Un DataFrame avec le nom, le prénom, la date de naissance et l'âge de l'élu l
 \description{
 Cette fonction identifie l'élu le plus âgé dans un DataFrame contenant des élus municipaux.
 }
-\details{
-La fonction convertit la colonne Date.de.naissance en format Date, identifie la plus ancienne date de naissance et calcule l'âge en années.
-}
-\seealso{
-\code{\link[=validate_schema]{validate_schema()}}
-}
