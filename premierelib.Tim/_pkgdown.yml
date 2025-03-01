@@ -1,7 +1,8 @@
 url: https://timothee-cadet.github.io/Premierelib-Tim/
 destination: docs
 template:
-  main: default
+  bootstrap: 5
+
 
 assets:
   - path: "assets/css/personnalisation/personnalisation.R"  # Chemin relatif vers le fichier CSS
