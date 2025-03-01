@@ -2,7 +2,9 @@ url: https://timothee-cadet.github.io/Premierelib-Tim/
 destination: docs
 template:
   bootstrap: 5
+  main: default
 
-assets:
-  - path: "docs/assets/css/personnalisation/personnalisation.R"  # Chemin relatif vers le fichier CSS
-
+# Pour personnaliser avec un thème
+theme:
+  primary: "#007bff"  # Couleur primaire de la barre de navigation
+  secondary: "#0056b3"  # Couleur secondaire
